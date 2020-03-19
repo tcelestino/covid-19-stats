@@ -9,23 +9,24 @@ const Title = styled.h1`
 `;
 
 const Footer = styled.footer`
-  --default-color: #fff;
+  --white: #fff;
+  --black: #000;
 
-  background-color: #000;
+  background-color: var(--black);
   box-sizing: border-box;
   bottom: 0;
-  color: var(--default-color);
+  color: var(--white);
   left: 0;
   padding: 1em;
   position: absolute;
   width: 100%;
 
   a {
-    color: var(--default-color);
+    color: var(--white);
     font-weight: 700;
 
     &:visited {
-      color: var(--default-color);
+      color: var(--white);
     }
   }
 `;
