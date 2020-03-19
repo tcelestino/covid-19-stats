@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { Dropdown } from '@catho/quantum';
+import { CountriesProps } from '../types';
 import { countries } from './data';
 
-type Countries = {
-  selected: Function;
-};
-
-function Countries(props: Countries): JSX.Element {
+function Countries(props: CountriesProps): JSX.Element {
   const { selected } = props;
   const [country, setCountry] = useState<string>('');
 

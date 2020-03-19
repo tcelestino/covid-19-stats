@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, CircularLoader } from '@catho/quantum';
+import { DetailsProps, DataListProps } from '../types';
 import { API_TOTAL } from '../endpoints';
 
-type DetailsProps = {
-  countryCode: string;
-};
+function DataList(props: DataListProps): JSX.Element {
+  const { items } = props;
+  return (
+    <ul>
+      <li>Total Active Cases: {items.total_active_cases}</li>
+      <li>Total Cases: {items.total_cases}</li>
+      <li>Total Deaths: {items.total_deaths}</li>
+      <li>Total new cases by today: {items.total_new_cases_today}</li>
+      <li>Total new deaths by today: {items.total_new_deaths_today}</li>
+      <li>Total Recovered: {items.total_recovered}</li>
+      <li>Total Serious Cases: {items.total_serious_cases}</li>
+      <li>Total Unresolved: {items.total_unresolved}</li>
+    </ul>
+  );
+}
 
 function Loading(): JSX.Element {
   return <CircularLoader size="large" />;
@@ -40,16 +53,7 @@ function Details(props: DetailsProps): JSX.Element {
               </Card.HeaderText>
             </Card.Header>
             <Card.Content>
-              <ul>
-                <li>Total Active Cases: {d.total_active_cases}</li>
-                <li>Total Cases: {d.total_cases}</li>
-                <li>Total Deaths: {d.total_deaths}</li>
-                <li>Total new cases by today: {d.total_new_cases_today}</li>
-                <li>Total new deaths by today: {d.total_new_deaths_today}</li>
-                <li>Total Recovered: {d.total_recovered}</li>
-                <li>Total Serious Cases: {d.total_serious_cases}</li>
-                <li>Total Unresolved: {d.total_unresolved}</li>
-              </ul>
+              <DataList items={d} />
             </Card.Content>
           </Card>
         )
