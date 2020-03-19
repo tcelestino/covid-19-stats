@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, CircularLoader } from '@catho/quantum';
+import { API_TOTAL } from '../endpoints';
 
 type DetailsProps = {
   countryCode: string;
@@ -10,15 +11,13 @@ function Loading(): JSX.Element {
   return <CircularLoader size="large" />;
 }
 
-const API_URL = 'https://thevirustracker.com/free-api?countryTotal';
-
 function Details(props: DetailsProps): JSX.Element {
   const { countryCode } = props;
 
   const [detail, setDetail] = useState<string[]>([]);
 
   useEffect((): (() => void) => {
-    const data = axios.get(`${API_URL}=${countryCode}`);
+    const data = axios.get(`${API_TOTAL}=${countryCode}`);
     data.then(info => setDetail(info.data.countrydata));
 
     return (): void => {
