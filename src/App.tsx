@@ -5,15 +5,26 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  makeStyles
+  makeStyles,
+  Theme
 } from '@material-ui/core';
 import Countries from './components/Countries';
 import Details from './components/Details';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh'
+  },
   title: {
     fontWeight: 700,
     fontSize: '2rem'
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    marginTop: 'auto',
+    backgroundColor: theme.palette.grey[200]
   }
 }));
 
@@ -24,7 +35,7 @@ function App() {
     setCountry(countryCode);
   };
   return (
-    <>
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar position="static" color="secondary">
         <Toolbar>
@@ -33,11 +44,25 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container>
+      <Container component="main">
         <Countries onSelected={handlerSelected} />
         {country && <Details countryCode={country} />}
       </Container>
-    </>
+      <footer className={classes.footer}>
+        <Container maxWidth="sm">
+          <Typography variant="body1">
+            Information data is supplied by{' '}
+            <a
+              href="https://thevirustracker.com/api"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Coronavirus Tracker
+            </a>
+          </Typography>
+        </Container>
+      </footer>
+    </div>
   );
 }
 

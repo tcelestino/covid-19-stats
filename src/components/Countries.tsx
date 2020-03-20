@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  FormControl,
+  Select,
+  MenuItem,
   createStyles,
   makeStyles,
   Theme
@@ -10,39 +11,53 @@ import { countries } from './data';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    formControl: {
-      marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(1)
-    },
-
     select: {
       width: '100%',
-      padding: '1em'
+      padding: theme.spacing(1),
+      margin: theme.spacing(2, 0, 1)
     }
   })
 );
 
 function Countries(props: CountriesProps): JSX.Element {
-  const classes = useStyles();
   const { onSelected } = props;
+  const classes = useStyles();
+  const [code, setCode] = useState('');
 
-  const onChange = (evt: React.ChangeEvent<{ value: string }>): void => {
-    onSelected(evt.currentTarget.value);
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const { value } = event.target;
+
+    setCode(value as string);
+    onSelected(value as string);
   };
 
   return (
-    <FormControl className={classes.formControl} fullWidth>
-      <select className={classes.select} onChange={onChange}>
-        <option value="">Select a country</option>
+    <>
+      <Select
+        value={code}
+        onChange={handleChange}
+        className={classes.select}
+        fullWidth
+      >
+        <MenuItem value="" disabled>
+          Select a country
+        </MenuItem>
+
+        {/* <select className={classes.select} onChange={onChange}> */}
+        {/* <option value="">Select a country</option> */}
         {countries.map(
           (country: Country): JSX.Element => (
-            <option value={country.value} key={country.id.toString()}>
+            <MenuItem value={country.value} key={country.id.toString()}>
               {country.name}
-            </option>
+            </MenuItem>
+            // <option value={country.value} key={country.id.toString()}>
+            //   {country.name}
+            // </option>
           )
         )}
-      </select>
-    </FormControl>
+      </Select>
+      {/* </select> */}
+    </>
   );
 }
 
