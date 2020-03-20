@@ -1,56 +1,42 @@
 import React, { useState } from 'react';
-import { Container, Row, Col } from '@catho/quantum';
-import styled from 'styled-components';
+import {
+  CssBaseline,
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  makeStyles
+} from '@material-ui/core';
 import Countries from './components/Countries';
 import Details from './components/Details';
 
-const Title = styled.h1`
-  font-size: 2em;
-`;
-
-const Footer = styled.footer`
-  --white: #fff;
-  --black: #000;
-
-  background-color: var(--black);
-  box-sizing: border-box;
-  bottom: 0;
-  color: var(--white);
-  left: 0;
-  padding: 1em;
-  position: absolute;
-  width: 100%;
-
-  a {
-    color: var(--white);
-    font-weight: 700;
-
-    &:visited {
-      color: var(--white);
-    }
+const useStyles = makeStyles(() => ({
+  title: {
+    fontWeight: 700,
+    fontSize: '2rem'
   }
-`;
+}));
 
 function App() {
-  const [country, setCountry] = useState('');
+  const classes = useStyles();
+  const [country, setCountry] = useState<string>('');
   const handlerSelected = (countryCode: string): void => {
     setCountry(countryCode);
   };
   return (
     <>
+      <CssBaseline />
+      <AppBar position="static" color="secondary">
+        <Toolbar>
+          <Typography variant="h1" className={classes.title}>
+            Covid-19 Stats
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Container>
-        <Row>
-          <Col>
-            <Title>Covid-19 Stats</Title>
-          </Col>
-        </Row>
-        <Countries selected={handlerSelected} />
+        <Countries onSelected={handlerSelected} />
         {country && <Details countryCode={country} />}
       </Container>
-      <Footer>
-        Information data is supplied by{' '}
-        <a href="https://thevirustracker.com/api">Coronavirus Tracker</a>
-      </Footer>
     </>
   );
 }

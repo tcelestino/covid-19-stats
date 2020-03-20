@@ -1,25 +1,48 @@
-import React, { useState } from 'react';
-import { Dropdown } from '@catho/quantum';
-import { CountriesProps } from '../types';
+import React from 'react';
+import {
+  FormControl,
+  createStyles,
+  makeStyles,
+  Theme
+} from '@material-ui/core';
+import { CountriesProps, Country } from '../types';
 import { countries } from './data';
 
-function Countries(props: CountriesProps): JSX.Element {
-  const { selected } = props;
-  const [country, setCountry] = useState<string>('');
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    formControl: {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(1)
+    },
 
-  const DropdownProps = {
-    placeholder: 'Choose a country',
-    autocomplete: true,
-    onChange: (e: any): void => {
-      setCountry(e);
-      selected(e.value);
+    select: {
+      width: '100%',
+      padding: '1em'
     }
+  })
+);
+
+function Countries(props: CountriesProps): JSX.Element {
+  const classes = useStyles();
+  const { onSelected } = props;
+
+  const onChange = (evt: React.ChangeEvent<{ value: string }>): void => {
+    onSelected(evt.currentTarget.value);
   };
 
   return (
-    <>
-      <Dropdown {...DropdownProps} selectedItem={country} items={countries} />
-    </>
+    <FormControl className={classes.formControl} fullWidth>
+      <select className={classes.select} onChange={onChange}>
+        <option value="">Select a country</option>
+        {countries.map(
+          (country: Country): JSX.Element => (
+            <option value={country.value} key={country.id.toString()}>
+              {country.name}
+            </option>
+          )
+        )}
+      </select>
+    </FormControl>
   );
 }
 
