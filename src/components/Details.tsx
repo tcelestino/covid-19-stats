@@ -1,27 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import {
+  Card,
+  CardContent,
+  CircularProgress,
+  createStyles,
+  Typography,
+  makeStyles,
+  Theme
+} from '@material-ui/core';
 import axios from 'axios';
-import { Card, CircularLoader } from '@catho/quantum';
-import { DetailsProps, DataListProps } from '../types';
+import { DetailsProps } from '../types';
 import { API_TOTAL } from '../endpoints';
 
-function DataList(props: DataListProps): JSX.Element {
-  const { items } = props;
-  return (
-    <ul>
-      <li>Total Active Cases: {items.total_active_cases}</li>
-      <li>Total Cases: {items.total_cases}</li>
-      <li>Total Deaths: {items.total_deaths}</li>
-      <li>Total new cases by today: {items.total_new_cases_today}</li>
-      <li>Total new deaths by today: {items.total_new_deaths_today}</li>
-      <li>Total Recovered: {items.total_recovered}</li>
-      <li>Total Serious Cases: {items.total_serious_cases}</li>
-      <li>Total Unresolved: {items.total_unresolved}</li>
-    </ul>
-  );
-}
+type DetailProps = {
+  title: string;
+  data: string;
+};
 
 function Loading(): JSX.Element {
-  return <CircularLoader size="large" />;
+  const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      root: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '40vh'
+      }
+    })
+  );
+
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <CircularProgress color="secondary" />
+    </div>
+  );
 }
 
 function Details(props: DetailsProps): JSX.Element {
@@ -46,19 +60,48 @@ function Details(props: DetailsProps): JSX.Element {
     <>
       {detail.map(
         (d: any): JSX.Element => (
-          <Card key={d.info.ourid}>
-            <Card.Header>
-              <Card.HeaderText>
-                <Card.Title small>{d.info.title}</Card.Title>
-              </Card.HeaderText>
-            </Card.Header>
-            <Card.Content>
-              <DataList items={d} />
-            </Card.Content>
-          </Card>
+          <div key={d.info.ourid}>
+            <Detail title="Total Active Cases" data={d.total_active_cases} />
+            <Detail title="Total Cases" data={d.total_cases} />
+            <Detail title="Total Deaths" data={d.total_deaths} />
+            <Detail
+              title="Total new cases by today"
+              data={d.total_new_cases_today}
+            />
+            <Detail
+              title="Total new deaths by today"
+              data={d.total_new_deaths_today}
+            />
+            <Detail title="Total Recovered" data={d.total_recovered} />
+            <Detail title="Total Serious Cases" data={d.total_serious_cases} />
+            <Detail title="Total Unresolved" data={d.total_unresolved} />
+          </div>
         )
       )}
     </>
+  );
+}
+
+function Detail(props: DetailProps): JSX.Element {
+  const useStyles = makeStyles((theme: Theme) => ({
+    root: {
+      textAlign: 'center',
+      marginBottom: '.5em',
+      fontSize: theme.spacing(3)
+    }
+  }));
+
+  const { title, data } = props;
+  const classes = useStyles();
+  return (
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {title}
+        </Typography>
+        {data}
+      </CardContent>
+    </Card>
   );
 }
 
