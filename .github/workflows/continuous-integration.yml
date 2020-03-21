@@ -1,0 +1,22 @@
+name: Continuous Integration
+
+on: [pull_request]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+      - name: Test
+        run: yarn test -- --coverage --watchAll=false
