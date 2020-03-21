@@ -38,9 +38,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build
-        run: yarn build
-
       - name: Deploy
         run: yarn deploy
         env:
