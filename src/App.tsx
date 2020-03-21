@@ -9,7 +9,8 @@ import {
   Theme
 } from '@material-ui/core';
 import Countries from './components/Countries';
-import Details from './components/Details';
+import CountryStats from './components/CountryStats';
+import GlobalStats from './components/GlobalStats';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -46,7 +47,8 @@ function App() {
       </AppBar>
       <Container component="main" maxWidth="sm">
         <Countries onSelected={handlerSelected} />
-        {country && <Details countryCode={country} />}
+        {!country && <GlobalStats />}
+        {country && <CountryStats countryCode={country} />}
       </Container>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
