@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Typography, makeStyles, Theme } from '@material-ui/core';
 import Loading from './Loading';
 import Detail from './Detail';
-import { DetailsProps, Results, GlobalStatsResult, GlobalData } from '../types';
+import {
+  DetailsProps,
+  Results,
+  GlobalData,
+  GlobalStatsResults
+} from '../types';
 import { GLOBAL_TOTAL } from '../endpoints';
-import { getGlobalStats } from '../utils';
+import { getData } from '../utils/fetch';
 
 const useStyles = makeStyles((theme: Theme) => ({
   h1: {
@@ -12,16 +17,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-function GlobalStats(props: DetailsProps): JSX.Element {
+function GlobalStatsDetail(props: DetailsProps): JSX.Element {
   const classes = useStyles();
   const { countryCode } = props;
   const [detail, setDetail] = useState<Results[]>([]);
 
   useEffect((): (() => void) => {
-    getGlobalStats(GLOBAL_TOTAL).then((info: GlobalStatsResult) => {
-      if (info.stat) {
-        setDetail(info.results);
-      }
+    getData(GLOBAL_TOTAL).then(info => {
+      const data = info.data as GlobalStatsResults;
+      setDetail(data.results);
     });
 
     return (): void => {
@@ -63,4 +67,4 @@ function GlobalStats(props: DetailsProps): JSX.Element {
   );
 }
 
-export default GlobalStats;
+export default GlobalStatsDetail;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading';
 import Detail from './Detail';
-import { getCountryStats } from '../utils';
+import { getData } from '../utils/fetch';
 import { DetailsProps, CountryStatsResult, CountryData } from '../types';
 import { COUNTRY_TOTAL } from '../endpoints';
 
@@ -11,10 +11,9 @@ function Details(props: DetailsProps): JSX.Element {
   const [detail, setDetail] = useState<CountryStatsResult>({ countrydata: [] });
 
   useEffect((): (() => void) => {
-    getCountryStats(`${COUNTRY_TOTAL}=${countryCode}`).then(info => {
-      if (info) {
-        setDetail(info);
-      }
+    getData(`${COUNTRY_TOTAL}=${countryCode}`).then(info => {
+      const data = info.data as CountryStatsResult;
+      setDetail(data);
     });
 
     return (): void => {

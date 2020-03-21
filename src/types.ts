@@ -41,10 +41,15 @@ export type Results = {
 };
 
 export type GlobalData = Results;
-export type GlobalStatsResult = {
+
+export interface FetchData<T> {
+  data: T | null;
+}
+
+export interface GlobalStatsResults {
   results: Array<Results> | [];
-  stat: string;
-};
+  stat: number;
+}
 
 export type CountryStatsResult = {
   countrydata: [];
