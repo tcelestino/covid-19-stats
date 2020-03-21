@@ -3,58 +3,100 @@
 exports[`renders learn react link 1`] = `
 <div>
   <div
-    class="App"
+    class="makeStyles-root-1"
   >
-    <h1>
-      Covid-19 Stats
-    </h1>
-    <div
-      class="FieldGroup-sc-18uoi37-0 khiIOm"
+    <header
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorSecondary MuiPaper-elevation4"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-0-label"
-        class="Dropdown__DropContainer-xoew8d-8 gSkKTj"
-        role="combobox"
+        class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
-        
+        <h1
+          class="MuiTypography-root makeStyles-title-2 MuiTypography-h1"
+        >
+          Covid-19 Stats
+        </h1>
+      </div>
+    </header>
+    <main
+      class="MuiContainer-root MuiContainer-maxWidthSm"
+    >
+      <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-select-85 MuiInputBase-fullWidth MuiInput-fullWidth"
+      >
+        <div
+          aria-haspopup="listbox"
+          aria-labelledby=" "
+          class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+          role="button"
+          tabindex="0"
+        >
+          <span>
+            ​
+          </span>
+        </div>
         <input
-          aria-autocomplete="list"
-          aria-labelledby="downshift-0-label"
-          autocomplete="off"
-          id="downshift-0-input"
-          name=""
           type="hidden"
           value=""
         />
-        <button
-          aria-haspopup="true"
-          aria-label="open menu"
-          class="TextInput-ado1el-0 Dropdown__DropInput-xoew8d-0 ftuoMF"
-          data-toggle="true"
-          id="dropdown-0"
-          role="button"
-          type="button"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSelect-icon"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
         >
-          Select a country
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+      </div>
+      <div
+        class="makeStyles-root-142"
+      >
+        <div
+          class="MuiCircularProgress-root MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
           <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root Dropdown__ArrowDown-xoew8d-1 fAZqlR"
-            focusable="false"
-            role="presentation"
-            theme="[object Object]"
-            viewBox="0 0 24 24"
+            class="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
           >
-            <path
-              d="M7 10l5 5 5-5z"
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
             />
           </svg>
-        </button>
+        </div>
       </div>
       
-      
-    </div>
+    </main>
+    <footer
+      class="makeStyles-footer-3"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthSm"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          Information data is supplied by
+           
+          <a
+            href="https://thevirustracker.com/api"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Coronavirus Tracker
+          </a>
+        </p>
+      </div>
+    </footer>
   </div>
 </div>
 `;
