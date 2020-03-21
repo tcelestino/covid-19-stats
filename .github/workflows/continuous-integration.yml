@@ -1,4 +1,4 @@
-name: Continuous Integration Development
+name: Continuous Integration
 
 on: [pull_request]
 
