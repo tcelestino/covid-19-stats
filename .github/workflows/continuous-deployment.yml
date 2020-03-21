@@ -38,8 +38,10 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Test
-        run: yarn test --watchAll=false
-
       - name: Build
         run: yarn build
+
+      - name: Deploy
+        run: yarn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
