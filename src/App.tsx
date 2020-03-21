@@ -44,7 +44,7 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container component="main">
+      <Container component="main" maxWidth="sm">
         <Countries onSelected={handlerSelected} />
         {country && <Details countryCode={country} />}
       </Container>

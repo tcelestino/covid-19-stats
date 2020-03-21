@@ -42,21 +42,14 @@ function Countries(props: CountriesProps): JSX.Element {
         <MenuItem value="" disabled>
           Select a country
         </MenuItem>
-
-        {/* <select className={classes.select} onChange={onChange}> */}
-        {/* <option value="">Select a country</option> */}
         {countries.map(
           (country: Country): JSX.Element => (
             <MenuItem value={country.value} key={country.id.toString()}>
               {country.name}
             </MenuItem>
-            // <option value={country.value} key={country.id.toString()}>
-            //   {country.name}
-            // </option>
           )
         )}
       </Select>
-      {/* </select> */}
     </>
   );
 }

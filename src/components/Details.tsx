@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import { DetailsProps } from '../types';
-import { API_TOTAL } from '../endpoints';
+import { COUNTRY_TOTAL } from '../endpoints';
 
 type DetailProps = {
   title: string;
@@ -44,7 +44,7 @@ function Details(props: DetailsProps): JSX.Element {
   const [detail, setDetail] = useState<string[]>([]);
 
   useEffect((): (() => void) => {
-    const data = axios.get(`${API_TOTAL}=${countryCode}`);
+    const data = axios.get(`${COUNTRY_TOTAL}=${countryCode}`);
     data.then(info => setDetail(info.data.countrydata));
 
     return (): void => {
