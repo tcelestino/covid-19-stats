@@ -3,6 +3,7 @@ import {
   CssBaseline,
   Container,
   AppBar,
+  Link,
   Toolbar,
   Typography,
   makeStyles,
@@ -21,6 +22,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   title: {
     fontWeight: 700,
     fontSize: '2rem'
+  },
+  titleText: {
+    color: theme.palette.grey[50]
   },
   footer: {
     padding: theme.spacing(3, 2),
@@ -41,7 +45,9 @@ function App() {
       <AppBar position="static" color="secondary">
         <Toolbar>
           <Typography variant="h1" className={classes.title}>
-            Covid-19 Stats
+            <Link href="/" className={classes.titleText}>
+              Covid-19 Stats
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>

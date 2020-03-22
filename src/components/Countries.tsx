@@ -4,13 +4,18 @@ import {
   MenuItem,
   createStyles,
   makeStyles,
-  Theme
+  Theme,
+  FormControl,
+  InputLabel
 } from '@material-ui/core';
 import { CountriesProps, Country } from '../types';
 import { countries } from './data';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    form: {
+      marginTop: theme.spacing(2)
+    },
     select: {
       width: '100%',
       padding: theme.spacing(1),
@@ -32,7 +37,10 @@ function Countries(props: CountriesProps): JSX.Element {
   };
 
   return (
-    <>
+    <FormControl className={classes.form} fullWidth>
+      <InputLabel id="demo-simple-select-autowidth-label">
+        Choose a country
+      </InputLabel>
       <Select
         value={code}
         onChange={handleChange}
@@ -50,7 +58,7 @@ function Countries(props: CountriesProps): JSX.Element {
           )
         )}
       </Select>
-    </>
+    </FormControl>
   );
 }
 
