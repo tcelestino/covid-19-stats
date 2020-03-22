@@ -11,7 +11,8 @@ function Details(props: DetailsProps): JSX.Element {
   const [detail, setDetail] = useState<CountryStatsResult>({ countrydata: [] });
 
   useEffect((): (() => void) => {
-    getData(`${COUNTRY_TOTAL}=${countryCode}`).then(info => {
+    getData(`${COUNTRY_TOTAL}=${countryCode}`).then((info) => {
+      // eslint-disable-next-line prettier/prettier
       const data = info.data as CountryStatsResult;
       setDetail(data);
     });
@@ -30,20 +31,14 @@ function Details(props: DetailsProps): JSX.Element {
       {detail.countrydata.map(
         (d: CountryData): JSX.Element => (
           <div key={d.info.ourid}>
-            <Detail title="Total Active Cases" data={d.total_active_cases} />
-            <Detail title="Total Cases" data={d.total_cases} />
-            <Detail title="Total Deaths" data={d.total_deaths} />
-            <Detail
-              title="Total new cases by today"
-              data={d.total_new_cases_today}
-            />
-            <Detail
-              title="Total new deaths by today"
-              data={d.total_new_deaths_today}
-            />
-            <Detail title="Total Recovered" data={d.total_recovered} />
-            <Detail title="Total Serious Cases" data={d.total_serious_cases} />
-            <Detail title="Total Unresolved" data={d.total_unresolved} />
+            <Detail title='Total Active Cases' data={d.total_active_cases} />
+            <Detail title='Total Cases' data={d.total_cases} />
+            <Detail title='Total Deaths' data={d.total_deaths} />
+            <Detail title='Total new cases by today' data={d.total_new_cases_today} />
+            <Detail title='Total new deaths by today' data={d.total_new_deaths_today} />
+            <Detail title='Total Recovered' data={d.total_recovered} />
+            <Detail title='Total Serious Cases' data={d.total_serious_cases} />
+            <Detail title='Total Unresolved' data={d.total_unresolved} />
           </div>
         )
       )}

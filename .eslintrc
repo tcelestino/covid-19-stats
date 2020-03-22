@@ -1,7 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": ["airbnb", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
-  "plugins": ["@typescript-eslint, react-hooks"],
+  "plugins": ["@typescript-eslint", "react-hooks"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -16,10 +16,10 @@
   },
   "rules": {
     "@typescript-eslint/ban-ts-ignore": ["off"],
-    "@typescript-eslint/indent": ["error", "2"],
+    "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/no-non-null-assertion": ["off"],
     "@typescript-eslint/no-unused-vars": "error",
-    "max-len": ["error", { "code": "120", "ignoreUrls": "true", "ignoreStrings": "true" }],
+    "max-len": ["error", { "code": 120, "ignoreUrls": true, "ignoreStrings": true}],
     "object-curly-newline": ["error", { "consistent": true }],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
@@ -30,6 +30,7 @@
     "react/jsx-props-no-spreading": ["off"],
     "react/prop-types": "off",
     "spaced-comment": ["error", "always", { "markers": ["/"] }],
+    "prettier/prettier": ["error", {"parser": "flow"}],
     "import/extensions": [
       "error",
       "ignorePackages",

@@ -1,4 +1,4 @@
-export const countries = [
+const countries = [
   { id: 0, name: 'Albania', value: 'AL' },
   { id: 1, name: 'Afghanistan', value: 'AF' },
   { id: 2, name: 'Algeria', value: 'DZ' },
@@ -180,5 +180,7 @@ export const countries = [
   { id: 178, name: 'Western Sahara', value: 'EH' },
   { id: 179, name: 'Yemen', value: 'YE' },
   { id: 180, name: 'Zambia', value: 'ZM' },
-  { id: 181, name: 'Zimbabwe', value: 'ZW' }
+  { id: 181, name: 'Zimbabwe', value: 'ZW' },
 ];
+
+export { countries as default };
