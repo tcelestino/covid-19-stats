@@ -14,7 +14,12 @@ exports[`renders learn react link 1`] = `
         <h1
           class="MuiTypography-root makeStyles-title-2 MuiTypography-h1"
         >
-          Covid-19 Stats
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-titleText-3 MuiTypography-colorPrimary"
+            href="/"
+          >
+            Covid-19 Stats
+          </a>
         </h1>
       </div>
     </header>
@@ -22,37 +27,48 @@ exports[`renders learn react link 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthSm"
     >
       <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-select-85 MuiInputBase-fullWidth MuiInput-fullWidth"
+        class="MuiFormControl-root makeStyles-form-92 MuiFormControl-fullWidth"
       >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+          data-shrink="false"
+          id="demo-simple-select-autowidth-label"
+        >
+          Choose a country
+        </label>
         <div
-          aria-haspopup="listbox"
-          aria-labelledby=" "
-          class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
-          role="button"
-          tabindex="0"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-select-93 MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
         >
-          <span>
-            ​
-          </span>
-        </div>
-        <input
-          type="hidden"
-          value=""
-        />
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSelect-icon"
-          focusable="false"
-          role="presentation"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7 10l5 5 5-5z"
+          <div
+            aria-haspopup="listbox"
+            aria-labelledby=" "
+            class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+            role="button"
+            tabindex="0"
+          >
+            <span>
+              ​
+            </span>
+          </div>
+          <input
+            type="hidden"
+            value=""
           />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSelect-icon"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
       </div>
       <div
-        class="makeStyles-root-142"
+        class="makeStyles-root-174"
       >
         <div
           class="MuiCircularProgress-root MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
@@ -77,7 +93,7 @@ exports[`renders learn react link 1`] = `
       
     </main>
     <footer
-      class="makeStyles-footer-3"
+      class="makeStyles-footer-4"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthSm"
