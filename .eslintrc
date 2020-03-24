@@ -30,7 +30,6 @@
     "react/jsx-props-no-spreading": ["off"],
     "react/prop-types": "off",
     "spaced-comment": ["error", "always", { "markers": ["/"] }],
-    "prettier/prettier": ["error", {"parser": "flow"}],
     "import/extensions": [
       "error",
       "ignorePackages",

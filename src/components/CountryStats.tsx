@@ -12,7 +12,6 @@ function Details(props: DetailsProps): JSX.Element {
 
   useEffect((): (() => void) => {
     getData(`${COUNTRY_TOTAL}=${countryCode}`).then((info) => {
-      // eslint-disable-next-line prettier/prettier
       const data = info.data as CountryStatsResult;
       setDetail(data);
     });

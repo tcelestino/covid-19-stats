@@ -24,7 +24,6 @@ function Countries(props: CountriesProps): JSX.Element {
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>): void => {
     const { value } = event.target;
 
-    // eslint-disable-next-line prettier/prettier
     setCode(value as string);
     onSelected(value as string);
   };

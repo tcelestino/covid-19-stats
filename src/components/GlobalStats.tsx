@@ -19,7 +19,6 @@ function GlobalStatsDetail(props: DetailsProps): JSX.Element {
 
   useEffect((): (() => void) => {
     getData(GLOBAL_TOTAL).then((info) => {
-      // eslint-disable-next-line prettier/prettier
       const data = info.data as GlobalStatsResults;
       setDetail(data.results);
     });
