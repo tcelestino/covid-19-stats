@@ -21,14 +21,14 @@ export interface CountryData extends Results {
   info: InfoResults;
 }
 
-export type InfoResults = {
+export interface InfoResults {
   ourid: number;
   title: string;
   code: string;
   source?: string;
-};
+}
 
-export type Results = {
+export interface Results {
   source?: {};
   total_active_cases: number;
   total_cases: number;
@@ -38,9 +38,7 @@ export type Results = {
   total_recovered: number;
   total_serious_cases: number;
   total_unresolved: number;
-};
-
-export type GlobalData = Results;
+}
 
 export interface FetchData<T> {
   data: T | null;
@@ -51,7 +49,9 @@ export interface GlobalStatsResults {
   stat: number;
 }
 
-export type CountryStatsResult = {
+export interface CountryStatsResult {
   countrydata: [];
   countrynewsitems?: [];
-};
+}
+
+export type GlobalData = Results;
