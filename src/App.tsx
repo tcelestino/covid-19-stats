@@ -45,7 +45,10 @@ function App() {
       <AppBar position="static" color="secondary">
         <Toolbar>
           <Typography variant="h1" className={classes.title}>
-            <Link href="/" className={classes.titleText}>
+            <Link
+              href="//tcelestino.github.io/covid-19-stats/"
+              className={classes.titleText}
+            >
               COVID-19 Stats
             </Link>
           </Typography>
