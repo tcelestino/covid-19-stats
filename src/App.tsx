@@ -46,7 +46,7 @@ function App() {
         <Toolbar>
           <Typography variant="h1" className={classes.title}>
             <Link href="/" className={classes.titleText}>
-              Covid-19 Stats
+              COVID-19 Stats
             </Link>
           </Typography>
         </Toolbar>

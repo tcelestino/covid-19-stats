@@ -18,7 +18,7 @@ exports[`renders learn react link 1`] = `
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-titleText-3 MuiTypography-colorPrimary"
             href="/"
           >
-            Covid-19 Stats
+            COVID-19 Stats
           </a>
         </h1>
       </div>
