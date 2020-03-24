@@ -49,7 +49,7 @@ function App() {
               href="//tcelestino.github.io/covid-19-stats/"
               className={classes.titleText}
             >
-              Covid-19 Stats
+              COVID-19 Stats
             </Link>
           </Typography>
         </Toolbar>
