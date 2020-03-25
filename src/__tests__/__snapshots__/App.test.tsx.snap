@@ -16,7 +16,7 @@ exports[`renders learn react link 1`] = `
         >
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-titleText-3 MuiTypography-colorPrimary"
-            href="/"
+            href="//tcelestino.github.io/covid-19-stats/"
           >
             COVID-19 Stats
           </a>
