@@ -29,8 +29,8 @@ function Countries(props: CountriesProps): JSX.Element {
   };
 
   return (
-    <FormControl className={classes.form} fullWidth>
-      <InputLabel id='demo-simple-select-autowidth-label'>Choose a country</InputLabel>
+    <FormControl id='list-countries' className={classes.form} fullWidth>
+      <InputLabel>Choose a country</InputLabel>
       <Select value={code} onChange={handleChange} className={classes.select} fullWidth>
         <MenuItem value='' disabled>
           Select a country
