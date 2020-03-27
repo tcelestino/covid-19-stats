@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../App';
+import Loading from '../components/Loading';
 
-describe('<App />', () => {
+describe('<Loading />', () => {
   it('render page', () => {
-    const { container } = render(<App />);
+    const { container } = render(<Loading />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -35,11 +35,8 @@ function App(): JSX.Element {
       <CssBaseline />
       <AppBar position='static' color='secondary'>
         <Toolbar>
-          <Typography variant="h1" className={classes.title}>
-            <Link
-              href="//tcelestino.github.io/covid-19-stats/"
-              className={classes.titleText}
-            >
+          <Typography variant='h1' className={classes.title}>
+            <Link href='//tcelestino.github.io/covid-19-stats/' className={classes.titleText}>
               COVID-19 Stats
             </Link>
           </Typography>
