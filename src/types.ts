@@ -4,6 +4,10 @@ export interface Country {
   value: string;
 }
 
+export interface GlobalStatsProps {
+  data: Results[];
+}
+
 export interface CountriesProps {
   onSelected: Function;
 }

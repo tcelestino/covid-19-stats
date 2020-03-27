@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Typography, makeStyles, Theme } from '@material-ui/core';
+import { GlobalStatsProps, GlobalData } from '../types';
 import Loading from './Loading';
 import Detail from './Detail';
-import { DetailsProps, Results, GlobalData, GlobalStatsResults } from '../types';
-import { GLOBAL_TOTAL } from '../endpoints';
-import { getData } from '../utils/fetch';
 
 const useStyles = makeStyles((theme: Theme) => ({
   h1: {
@@ -12,35 +10,23 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-function GlobalStatsDetail(props: DetailsProps): JSX.Element {
+function GlobalStatsDetail(props: GlobalStatsProps): JSX.Element {
   const classes = useStyles();
-  const { countryCode } = props;
-  const [detail, setDetail] = useState<Results[]>([]);
+  const { data } = props;
 
-  useEffect((): (() => void) => {
-    getData(GLOBAL_TOTAL).then((info) => {
-      const data = info.data as GlobalStatsResults;
-      setDetail(data.results);
-    });
-
-    return (): void => {
-      setDetail([]);
-    };
-  }, [countryCode]);
-
-  if (!detail.length) {
+  if (!data.length) {
     return <Loading />;
   }
 
   return (
-    <>
+    <section id='global-stats'>
       <Typography variant='h4' component='h2' className={classes.h1}>
         Global Stats
       </Typography>
-      {detail.map(
+      {data.map(
         (d: GlobalData): JSX.Element => (
           // TODO: create id
-          <div key={detail.length.toString()}>
+          <div key={data.length.toString()}>
             <Detail title='Total Active Cases' data={d.total_active_cases} />
             <Detail title='Total Cases' data={d.total_cases} />
             <Detail title='Total Deaths' data={d.total_deaths} />
@@ -52,7 +38,7 @@ function GlobalStatsDetail(props: DetailsProps): JSX.Element {
           </div>
         )
       )}
-    </>
+    </section>
   );
 }
 
